@@ -203,8 +203,7 @@ export2latex.createTable<-function(x, file, which.table='descr', size='same', nm
     \\endfoot   
     \\multicolumn{",nchar(head.loc),"}{l}{}  \\\\ 
     \\endlastfoot 
-    ",body.tex," 
-    \\hline",
+    ",body.tex,"\\hline",
     if (caption[1]!='') ifelse(loc.caption=='bottom',paste("\\\\ \\caption{",caption[1],"}\\\\",sep=""),"") else "","
     \\end{table}",
     if (size!='same') paste("\\end{", size ,"}",sep="") else "", 
@@ -293,8 +292,7 @@ export2latex.createTable<-function(x, file, which.table='descr', size='same', nm
     \\endfoot    
     \\multicolumn{",nchar(head.loc),"}{l}{}  \\\\ 
     \\endlastfoot 
-    ",body.tex,"
-    \\hline",
+    ",body.tex,"\\hline",
     if (caption[2]!='') ifelse(loc.caption=='bottom',paste("\\\\ \\caption{",caption[2],"}\\\\",sep=""),"") else "","
     \\end{table}",
     if (size!='same') paste("\\end{", size ,"}",sep="") else "",
