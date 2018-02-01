@@ -185,7 +185,7 @@ export2latex.createTable<-function(x, file, which.table='descr', size='same', nm
     tex<-paste(
     if (landscape) paste("\\begin{landscape}",sep="") else "",
     if (size!='same') paste("\\begin{", size ,"}",sep="") else "","    
-    \\begin{table}{",head.loc,"}" 
+    \\begin{longtable}{",head.loc,"}" 
     ,if (caption[1]!='') ifelse(loc.caption=='top',paste("\\caption{",caption[1],"}\\\\",sep=""),"") else "","
     \\hline  
     ",head.tex,"  
@@ -203,9 +203,10 @@ export2latex.createTable<-function(x, file, which.table='descr', size='same', nm
     \\endfoot   
     \\multicolumn{",nchar(head.loc),"}{l}{}  \\\\ 
     \\endlastfoot 
-    ",body.tex,"\\hline",
+    ",body.tex,"
+    \\hline",
     if (caption[1]!='') ifelse(loc.caption=='bottom',paste("\\\\ \\caption{",caption[1],"}\\\\",sep=""),"") else "","
-    \\end{table}",
+    \\end{longtable}",
     if (size!='same') paste("\\end{", size ,"}",sep="") else "", 
     if (landscape) paste("\\end{landscape}",sep="") else ""   
     ,sep="")
@@ -274,7 +275,7 @@ export2latex.createTable<-function(x, file, which.table='descr', size='same', nm
     tex<-paste(
     if (landscape) paste("\\begin{landscape}",sep="") else "",
     if (size!='same') paste("\\begin{", size ,"}",sep="") else "","    
-    \\begin{table}{",head.loc,"}", 
+    \\begin{longtable}{",head.loc,"}", 
     if (caption[2]!='') ifelse(loc.caption=='top',paste("\\caption{",caption[2],"}\\\\",sep=""),"") else "","
     \\hline  
     ",head.tex," 
@@ -292,9 +293,10 @@ export2latex.createTable<-function(x, file, which.table='descr', size='same', nm
     \\endfoot    
     \\multicolumn{",nchar(head.loc),"}{l}{}  \\\\ 
     \\endlastfoot 
-    ",body.tex,"\\hline",
+    ",body.tex,"
+    \\hline",
     if (caption[2]!='') ifelse(loc.caption=='bottom',paste("\\\\ \\caption{",caption[2],"}\\\\",sep=""),"") else "","
-    \\end{table}",
+    \\end{longtable}",
     if (size!='same') paste("\\end{", size ,"}",sep="") else "",
     if (landscape) paste("\\end{landscape}",sep="") else ""    
     ,sep="")    
