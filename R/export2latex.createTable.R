@@ -185,8 +185,9 @@ export2latex.createTable<-function(x, file, which.table='descr', size='same', nm
     tex<-paste(
     if (landscape) paste("\\begin{landscape}",sep="") else "",
     if (size!='same') paste("\\begin{", size ,"}",sep="") else "","    
-    \\begin{tabular}{",head.loc,"}" 
+    \\begin{table}{",head.loc,"}" 
     ,if (caption[1]!='') ifelse(loc.caption=='top',paste("\\caption{",caption[1],"}\\\\",sep=""),"") else "","
+    \\begin{tabular}
     \\hline  
     ",head.tex,"  
     \\hline
@@ -205,8 +206,9 @@ export2latex.createTable<-function(x, file, which.table='descr', size='same', nm
     \\endlastfoot 
     ",body.tex,"
     \\hline",
+    \\end{tabular}
     if (caption[1]!='') ifelse(loc.caption=='bottom',paste("\\\\ \\caption{",caption[1],"}\\\\",sep=""),"") else "","
-    \\end{tabular}",
+    \\end{table}",
     if (size!='same') paste("\\end{", size ,"}",sep="") else "", 
     if (landscape) paste("\\end{landscape}",sep="") else ""   
     ,sep="")
