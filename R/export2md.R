@@ -54,7 +54,7 @@ export2md<-function(x, which.table="descr", nmax=TRUE, header.labels=c(), captio
       }
     }
     table1 <- rbind(table1[1:ii, ], aux)
-    table1[, 1] <- sub("^    ", "\hskip 1em", table1[, 1])
+    table1[, 1] <- sub("^    ", "\\\\hskip 1em", table1[, 1])
     table1[, 1] <- sub("^\\&nbsp;\\&nbsp;\\&nbsp;\\&nbsp;    ", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", table1[, 1])
     if (nrow(table1) > 1 && length(grep("^N=", trim(table1[2, 2])))) {
       wn <- grep("^N=", trim(table1[2, ]))
@@ -85,7 +85,7 @@ export2md<-function(x, which.table="descr", nmax=TRUE, header.labels=c(), captio
       }
     }
     table2 <- rbind(table2[1, ], aux)
-    table2[, 1] <- sub("^    ", "\hskip 1em", table2[, 1])
+    table2[, 1] <- sub("^    ", "$\\\\hskip 1em$", table2[, 1])
     table2[, 1] <- sub("^\\&nbsp;\\&nbsp;\\&nbsp;\\&nbsp;    ", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", table2[, 1])
     table2[1, 1] <- " "
     align <- c("l", rep("c", ncol(table2)))
